@@ -18,8 +18,7 @@
                     {{-- {{ Auth::user()->name }} --}}
                     {{-- {{ Auth::user()->id }} --}}
 
-                    {{$user->name}}
-                    id :{{$user->id}}
+                        {{$user->profile->title}}
                 </div>
             </div>
         </div>

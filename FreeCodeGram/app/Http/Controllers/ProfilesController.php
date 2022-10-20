@@ -14,7 +14,7 @@ class ProfilesController extends Controller
         $user = User::find($user);
         // dd($user);
 
-
+        // error_log($user->profile
         return view('home', [
             'user'=>$user,
         ]);
