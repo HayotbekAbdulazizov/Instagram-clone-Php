@@ -4,12 +4,18 @@
 <div class="container">
     <div class="row " >
         <div class="col-3">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="" style="width:120px;">
+            <img src="{{ $user->profile->profileImage() }}" alt="" style="max-width:180px; border-radius:50%;">
+                {{-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png" alt="" style="width:130px;"> --}}
         </div>
         <div class="col-9">
             <div class="d-flex justify-content-between align-items-center">
                 <h3> {{ $user->name }} </h3>
-                <div> <a href="{{ route('post.create') }}">Add Post</a> </div>
+                <div class="d-flex " style="flex-direction: column">
+                    @can ('update', $user->profile)
+                        <a href="{{ route("post.create") }}">Add Post</a> 
+                        <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                    @endcan
+                </div>
             </div>
             <div class="d-flex">
                 <div class="p-2"><strong> {{$user->posts->count()}} </strong> posts</div>
