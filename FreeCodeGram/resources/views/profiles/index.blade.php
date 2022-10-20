@@ -33,9 +33,11 @@
             <img class="w-100" src="https://thumbs.dreamstime.com/b/code-logo-digital-company-letter-d-consist-left-curly-brace-right-parenthesis-open-close-brackets-programming-symbols-163651620.jpg" alt="">
         </div>
 
-        @foreach ($user->posts as $value)
+        @foreach ($user->posts as $post)
             <div class="col-4">
-                <img class="w-100" src="/storage/{{$value->image}}" alt="">
+                <a href="/p/{{$post->id}}">
+                    <img class="w-100" src="/storage/{{$post->image}}" alt="">
+                </a>
             </div>
         @endforeach
 
