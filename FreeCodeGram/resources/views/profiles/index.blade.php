@@ -12,7 +12,7 @@
                 <div> <a href="{{ route('post.create') }}">Add Post</a> </div>
             </div>
             <div class="d-flex">
-                <div class="p-2"><strong>153</strong> posts</div>
+                <div class="p-2"><strong> {{$user->posts->count()}} </strong> posts</div>
                 <div class="p-2"><strong>23k</strong> followers</div>
                 <div class="p-2"><strong>231</strong> following</div>
             </div>
