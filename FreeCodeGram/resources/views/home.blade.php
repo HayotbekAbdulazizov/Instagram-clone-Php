@@ -15,8 +15,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-                    {{ Auth::user()->name }}
-                    {{ Auth::user()->id }}
+                    {{-- {{ Auth::user()->name }} --}}
+                    {{-- {{ Auth::user()->id }} --}}
+
+                    {{$user->name}}
+                    id :{{$user->id}}
                 </div>
             </div>
         </div>

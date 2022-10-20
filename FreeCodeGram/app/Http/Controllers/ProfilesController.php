@@ -11,9 +11,12 @@ class ProfilesController extends Controller
     {
         // dd($user);
 
-        dd(User::find($user));
+        $user = User::find($user);
+        // dd($user);
 
 
-        return view('home');
+        return view('home', [
+            'user'=>$user,
+        ]);
     }
 }
