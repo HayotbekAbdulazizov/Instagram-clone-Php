@@ -77,3 +77,4 @@ class ProfilesController extends Controller{
 
 
 }
+
