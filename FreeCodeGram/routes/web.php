@@ -17,7 +17,7 @@ use \App\Http\Controllers\ProfilesController ;
 |
 */
 
-Route::get('/', function () {return view('welcome');});
+// Route::get('/', function () {return view('welcome');});
 
 Auth::routes(); 
 
@@ -25,8 +25,9 @@ Auth::routes();
 Route::post('/follow/{user}', [FollowsController::class, 'store']);
 
 Route::get('/p/create', [PostsController::class, 'create'])->name('post.create');
-Route::post('/p', [PostsController::class, 'store'])->name('post.store');
 Route::get('/p/{post}', [PostsController::class, 'show'])->name('post.show');
+Route::post('/p', [PostsController::class, 'store'])->name('post.store');
+Route::get('/', [PostsController::class, 'index'])->name('home');
 
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
