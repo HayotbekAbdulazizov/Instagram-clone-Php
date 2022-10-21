@@ -21,9 +21,9 @@
                 </div>
             </div>
             <div class="d-flex">
-                <div class="p-2"><strong> {{$user->posts->count()}} </strong> posts</div>
-                <div class="p-2"><strong>{{ $user->profile->followers->count() }}</strong> followers</div>
-                <div class="p-2"><strong>{{ $user->following->count() }}</strong> following</div>
+                <div class="p-2"><strong> {{ $postsCount }} </strong> posts</div>
+                <div class="p-2"><strong>{{ $followersCount }}</strong> followers</div>
+                <div class="p-2"><strong>{{ $followingCount }}</strong> following</div>
             </div>
             <div class="pt-3" style="font-weight:bold;">{{ $user->profile->title }}</div>
             <div> {{ $user->profile->description }} </div>
