@@ -1,6 +1,10 @@
 <?php
 
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\PostsController ;
+use \App\Http\Controllers\FollowsController ;
+use \App\Http\Controllers\ProfilesController ;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
 Auth::routes(); 
 
 
-Route::get('/p/create', [App\Http\Controllers\PostsController::class, 'create'])->name('post.create');
-Route::post('/p', [App\Http\Controllers\PostsController::class, 'store'])->name('post.store');
-Route::get('/p/{post}', [App\Http\Controllers\PostsController::class, 'show'])->name('post.show');
+Route::post('/follow/{user}', [FollowsController::class, 'store']);
 
-Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
-Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
-Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
+Route::get('/p/create', [PostsController::class, 'create'])->name('post.create');
+Route::post('/p', [PostsController::class, 'store'])->name('post.store');
+Route::get('/p/{post}', [PostsController::class, 'show'])->name('post.show');
+
+Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
+Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
+Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
